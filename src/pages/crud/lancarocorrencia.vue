@@ -112,7 +112,7 @@ export default {
   methods: {
     salvar () {
       axios({
-        baseURL: this.modeloLanc.id ? 'http://localhost:8080/lancamentoocorrencia/' + this.modeloLanc.id : `http://localhost:8080/lancamentoocorrencia`,
+        baseURL: this.modeloLanc.id ? 'https://estagio-back.herokuapp.com//lancamentoocorrencia/' + this.modeloLanc.id : `https://estagio-back.herokuapp.com//lancamentoocorrencia`,
         timeout: 10000,
         method: this.modeloLanc.id ? 'PUT' : 'POST',
         withCredentials: true,
@@ -152,7 +152,7 @@ export default {
     },
     atualizaModel () {
       axios
-        .get(`http://localhost:8080/funcionario`)
+        .get(`https://estagio-back.herokuapp.com//funcionario`)
         .then(response => {
           // then we update the rows with the fetched ones
           this.funcionarios = []
@@ -173,7 +173,7 @@ export default {
           // we tell QTable to exit the "loading" state
         })
       axios
-        .get(`http://localhost:8080/ocorrencia`)
+        .get(`https://estagio-back.herokuapp.com//ocorrencia`)
         .then(response => {
           // then we update the rows with the fetched ones
           this.ocorrencias = []

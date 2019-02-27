@@ -121,7 +121,7 @@ export default {
     salvar () {
       this.modeloLanc.origem = this.$store.state.user
       axios({
-        baseURL: this.modeloLanc.id ? 'http://localhost:8080/mensagem/' + this.modeloLanc.id : `http://localhost:8080/mensagem`,
+        baseURL: this.modeloLanc.id ? 'https://estagio-back.herokuapp.com//mensagem/' + this.modeloLanc.id : `https://estagio-back.herokuapp.com//mensagem`,
         timeout: 10000,
         method: this.modeloLanc.id ? 'PUT' : 'POST',
         withCredentials: true,
@@ -162,7 +162,7 @@ export default {
     },
     atualizaModel () {
       axios
-        .get(`http://localhost:8080/funcionario`)
+        .get(`https://estagio-back.herokuapp.com//funcionario`)
         .then(response => {
           // then we update the rows with the fetched ones
           this.funcionarios = []
@@ -185,7 +185,7 @@ export default {
     },
     atualizaMensagem () {
       axios
-        .get(`http://localhost:8080/mensagem`)
+        .get(`https://estagio-back.herokuapp.com//mensagem`)
         .then(response => {
           // then we update the rows with the fetched ones
           this.mensagens = []
@@ -207,7 +207,7 @@ export default {
       }).then(() => {
         axios({
           method: 'delete',
-          url: 'http://localhost:8080/mensagem/' + id,
+          url: 'https://estagio-back.herokuapp.com//mensagem/' + id,
           headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
         }).then(response => {
           this.$q.notify({

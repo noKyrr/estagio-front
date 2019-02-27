@@ -154,7 +154,7 @@ export default {
     },
     submit () {
       axios({
-        baseURL: this.modelo.id ? 'http://localhost:8080/feriado/' + this.modelo.id : `http://localhost:8080/feriado`,
+        baseURL: this.modelo.id ? 'https://estagio-back.herokuapp.com//feriado/' + this.modelo.id : `https://estagio-back.herokuapp.com//feriado`,
         timeout: 10000,
         method: this.modelo.id ? 'PUT' : 'POST',
         withCredentials: true,
@@ -195,7 +195,7 @@ export default {
     getDepartamentos () {
       axios({
         method: 'get',
-        url: 'http://localhost:8080/departamento',
+        url: 'https://estagio-back.herokuapp.com//departamento',
         headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
       }).then(response => {
         this.tableDepartamento = JSON.parse(JSON.stringify(response.data))
@@ -228,7 +228,7 @@ export default {
       // (using Axios here, but can be anything; parameters vary based on backend implementation)
 
       axios
-        .get(`http://localhost:8080/feriado`)
+        .get(`https://estagio-back.herokuapp.com//feriado`)
         .then(response => {
           this.serverData = JSON.parse(JSON.stringify(response.data))
           this.loading = false
@@ -251,7 +251,7 @@ export default {
         const element = this.modelo.departamentos[i]
         axios({
           method: 'get',
-          url: 'http://localhost:8080/departamento/' + element.id,
+          url: 'https://estagio-back.herokuapp.com//departamento/' + element.id,
           headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
         }).then(response => {
           this.modelo.departamentos[i] = JSON.parse(JSON.stringify(response.data))
@@ -267,7 +267,7 @@ export default {
       }).then(() => {
         axios({
           method: 'delete',
-          url: 'http://localhost:8080/feriado/' + id,
+          url: 'https://estagio-back.herokuapp.com//feriado/' + id,
           headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
         }).then(response => {
           this.$q.notify({

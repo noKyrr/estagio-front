@@ -293,7 +293,7 @@ export default {
         })
       })
       axios({
-        baseURL: this.modelo.id ? 'http://localhost:8080/jornadamensal/' + this.modelo.id : `http://localhost:8080/jornadamensal`,
+        baseURL: this.modelo.id ? 'https://estagio-back.herokuapp.com//jornadamensal/' + this.modelo.id : `https://estagio-back.herokuapp.com//jornadamensal`,
         timeout: 10000,
         method: this.modelo.id ? 'PUT' : 'POST',
         withCredentials: true,
@@ -334,7 +334,7 @@ export default {
     getHorarios () {
       axios({
         method: 'get',
-        url: 'http://localhost:8080/horario',
+        url: 'https://estagio-back.herokuapp.com//horario',
         headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
       }).then(response => {
         this.horarios = []
@@ -351,7 +351,7 @@ export default {
     getPerfil () {
       axios({
         method: 'get',
-        url: 'http://localhost:8080/perfiljornada',
+        url: 'https://estagio-back.herokuapp.com//perfiljornada',
         headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
       }).then(response => {
         this.perfilJornada = []
@@ -394,7 +394,7 @@ export default {
       // (using Axios here, but can be anything; parameters vary based on backend implementation)
 
       axios
-        .get(`http://localhost:8080/jornada`)
+        .get(`https://estagio-back.herokuapp.com//jornada`)
         .then(response => {
           this.serverData = JSON.parse(JSON.stringify(response.data))
           this.loading = false
@@ -418,7 +418,7 @@ export default {
         const element = this.modelo.listaHorarios[i]
         axios({
           method: 'get',
-          url: 'http://localhost:8080/jornadamensalitem/' + element.id,
+          url: 'https://estagio-back.herokuapp.com//jornadamensalitem/' + element.id,
           headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
         }).then(response => {
           this.modelo.listaHorarios.push(JSON.parse(JSON.stringify(response.data)))
@@ -462,7 +462,7 @@ export default {
       }).then(() => {
         axios({
           method: 'delete',
-          url: 'http://localhost:8080/jornada/' + id,
+          url: 'https://estagio-back.herokuapp.com//jornada/' + id,
           headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
         }).then(response => {
           this.$q.notify({

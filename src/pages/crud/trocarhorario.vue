@@ -105,7 +105,7 @@ export default {
   methods: {
     salvar () {
       axios({
-        baseURL: 'http://localhost:8080/alterarhorariosubmit/alterahorario  ',
+        baseURL: 'https://estagio-back.herokuapp.com//alterarhorariosubmit/alterahorario  ',
         timeout: 10000,
         method: 'POST',
         withCredentials: true,
@@ -148,7 +148,7 @@ export default {
       this.modelHorario.func2 = this.modeloLanc.func2
       this.modelHorario.data = this.modeloLanc.data
       axios
-        .post(`http://localhost:8080/alterarhorariosubmit/horariodia`, this.modelHorario)
+        .post(`https://estagio-back.herokuapp.com//alterarhorariosubmit/horariodia`, this.modelHorario)
         .then(response => {
           let temp = JSON.parse(JSON.stringify(response.data))
           this.modelHorario.hor1 = temp.hor1 ? temp.hor1 : 'Não Definido'
@@ -157,7 +157,7 @@ export default {
     },
     atualizaModel () {
       axios
-        .get(`http://localhost:8080/funcionario`)
+        .get(`https://estagio-back.herokuapp.com//funcionario`)
         .then(response => {
           // then we update the rows with the fetched ones
           this.funcionarios = []

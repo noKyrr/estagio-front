@@ -196,7 +196,7 @@ export default {
         })
       } else {
         axios({
-          baseURL: this.modelo.id ? 'http://localhost:8080/empresa/' + this.modelo.id : `http://localhost:8080/empresa`,
+          baseURL: this.modelo.id ? 'https://estagio-back.herokuapp.com//empresa/' + this.modelo.id : `https://estagio-back.herokuapp.com//empresa`,
           timeout: 10000,
           method: this.modelo.id ? 'PUT' : 'POST',
           withCredentials: true,
@@ -238,7 +238,7 @@ export default {
     getlocal () {
       axios({
         method: 'get',
-        url: 'http://localhost:8080/local',
+        url: 'https://estagio-back.herokuapp.com//local',
         headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
       }).then(response => {
         this.locais = []
@@ -256,7 +256,7 @@ export default {
     getresponsavel () {
       axios({
         method: 'get',
-        url: 'http://localhost:8080/funcionario',
+        url: 'https://estagio-back.herokuapp.com//funcionario',
         headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
       }).then(response => {
         this.responsaveis = []
@@ -300,7 +300,7 @@ export default {
       // (using Axios here, but can be anything; parameters vary based on backend implementation)
 
       axios
-        .get(`http://localhost:8080/empresa`)
+        .get(`https://estagio-back.herokuapp.com//empresa`)
         .then(response => {
           // then we update the rows with the fetched ones
           this.serverData = JSON.parse(JSON.stringify(response.data))
@@ -347,7 +347,7 @@ export default {
       }).then(() => {
         axios({
           method: 'delete',
-          url: 'http://localhost:8080/empresa/' + id,
+          url: 'https://estagio-back.herokuapp.com//empresa/' + id,
           headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
         }).then(response => {
           this.$q.notify({

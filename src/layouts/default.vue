@@ -174,7 +174,7 @@ export default {
     openURL,
     logar () {
       axios
-        .post(`http://localhost:8080/login/auth`, this.usuario)
+        .post(`https://estagio-back.herokuapp.com//login/auth`, this.usuario)
         .then(response => {
           this.$store.commit('setUser', response.data)
           this.logado = true

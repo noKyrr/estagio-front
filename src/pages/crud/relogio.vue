@@ -232,7 +232,7 @@ export default {
     },
     submit () {
       axios({
-        baseURL: this.modelo.id ? 'http://localhost:8080/relogio/' + this.modelo.id : `http://localhost:8080/relogio`,
+        baseURL: this.modelo.id ? 'https://estagio-back.herokuapp.com//relogio/' + this.modelo.id : `https://estagio-back.herokuapp.com//relogio`,
         timeout: 10000,
         method: this.modelo.id ? 'PUT' : 'POST',
         withCredentials: true,
@@ -273,7 +273,7 @@ export default {
     getlocal () {
       axios({
         method: 'get',
-        url: 'http://localhost:8080/local',
+        url: 'https://estagio-back.herokuapp.com//local',
         headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
       }).then(response => {
         this.locais = []
@@ -291,7 +291,7 @@ export default {
     getresponsavel () {
       axios({
         method: 'get',
-        url: 'http://localhost:8080/funcionario',
+        url: 'https://estagio-back.herokuapp.com//funcionario',
         headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
       }).then(response => {
         this.responsaveis = []
@@ -308,7 +308,7 @@ export default {
     },
     getEmpresas () {
       axios
-        .get(`http://localhost:8080/empresa`)
+        .get(`https://estagio-back.herokuapp.com//empresa`)
         .then(response => {
           this.empresas = []
           var temp = JSON.parse(JSON.stringify(response.data))
@@ -324,7 +324,7 @@ export default {
     },
     tableEmpresas () {
       axios
-        .get(`http://localhost:8080/empresa`)
+        .get(`https://estagio-back.herokuapp.com//empresa`)
         .then(response => {
           this.listEmpresas = []
           this.listEmpresas = JSON.parse(JSON.stringify(response.data))
@@ -355,7 +355,7 @@ export default {
     request () {
       this.loading = true
       axios
-        .get(`http://localhost:8080/relogio`)
+        .get(`https://estagio-back.herokuapp.com//relogio`)
         .then(response => {
           this.serverData = JSON.parse(JSON.stringify(response.data))
           this.loading = false
@@ -391,7 +391,7 @@ export default {
         const element = this.modelo.empresaAdicional[i]
         axios({
           method: 'get',
-          url: 'http://localhost:8080/empresa/' + element.id,
+          url: 'https://estagio-back.herokuapp.com//empresa/' + element.id,
           headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
         }).then(response => {
           this.modelo.empresaAdicional[i] = JSON.parse(JSON.stringify(response.data))
@@ -407,7 +407,7 @@ export default {
       }).then(() => {
         axios({
           method: 'delete',
-          url: 'http://localhost:8080/relogio/' + id,
+          url: 'https://estagio-back.herokuapp.com//relogio/' + id,
           headers: {'content-Type': 'application/json', 'Accept': 'application/json'}
         }).then(response => {
           this.$q.notify({
